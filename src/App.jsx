@@ -125,6 +125,14 @@ function buildWhatsAppMessage(member, notice) {
   return encodeURIComponent(lines.join('\n'))
 }
 
+function buildWhatsAppUrl(member, notice) {
+  const digitsOnly = member.whatsappNumber.replace(/\D/g, '')
+  const phoneNumber = digitsOnly.length === 10 ? `91${digitsOnly}` : digitsOnly
+  const message = buildWhatsAppMessage(member, notice)
+
+  return `https://wa.me/${phoneNumber}?text=${message}`
+}
+
 function App() {
   const [members, setMembers] = usePersistentState(STORAGE_KEYS.members, seedMembers)
   const [notices, setNotices] = usePersistentState(STORAGE_KEYS.notices, [])
@@ -425,35 +433,37 @@ function AdminPage({ members, notices, setMembers, setNotices, isAdminLoggedIn, 
       title: noticeForm.title.trim(),
     })
 
-    const record = {
-      id: Date.now(),
+    const whatsappNotice = {
       title: noticeForm.title.trim(),
-      houseNumber: noticeForm.houseNumber,
       message: noticeForm.message.trim(),
       amount: noticeForm.amount,
       paymentLink,
       imageName: noticeForm.imageName,
+    }
+    const whatsappUrl = buildWhatsAppUrl(targetMember, whatsappNotice)
+
+    const record = {
+      id: Date.now(),
+      title: whatsappNotice.title,
+      houseNumber: noticeForm.houseNumber,
+      message: whatsappNotice.message,
+      amount: whatsappNotice.amount,
+      paymentLink,
+      imageName: whatsappNotice.imageName,
       imageDataUrl: noticeForm.imageDataUrl,
       recipientName: targetMember.name,
       whatsappNumber: targetMember.whatsappNumber,
       createdAt: new Date().toLocaleString(),
-      status: 'sent-demo',
-      deliveryMode: 'direct-demo',
-      previewMessage: decodeURIComponent(
-        buildWhatsAppMessage(targetMember, {
-          title: noticeForm.title.trim(),
-          message: noticeForm.message.trim(),
-          amount: noticeForm.amount,
-          paymentLink,
-          imageName: noticeForm.imageName,
-        }),
-      ),
+      status: 'opened-whatsapp',
+      deliveryMode: 'whatsapp',
+      previewMessage: decodeURIComponent(buildWhatsAppMessage(targetMember, whatsappNotice)),
     }
 
     setNotices((currentNotices) => [record, ...currentNotices])
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
     setSendState({
       kind: 'success',
-      message: `Notice sent in demo mode to ${targetMember.name} for house ${targetMember.houseNumber}.`,
+      message: `WhatsApp opened for ${targetMember.name} at house ${targetMember.houseNumber}. Review and send the message there.`,
     })
 
     setNoticeForm(defaultNoticeDraft)
@@ -647,8 +657,8 @@ function AdminPage({ members, notices, setMembers, setNotices, isAdminLoggedIn, 
               </div>
             ) : null}
             <p className="hint-text full-width">
-              The amount automatically creates a UPI payment link. This is a direct-send demo flow inside
-              the dashboard for now, and real WhatsApp API delivery can be connected later.
+              The amount automatically creates a UPI payment link. Clicking send opens WhatsApp with the
+              notice message ready to review and send.
             </p>
             <div className="button-row">
               <button className="button primary" type="submit">
