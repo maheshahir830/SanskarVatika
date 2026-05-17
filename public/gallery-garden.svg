@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Central Garden</title>
+  <desc id="desc">Illustration of a community garden.</desc>
+  <rect width="800" height="600" fill="#eef6e8"/>
+  <rect width="800" height="280" fill="#dbeef8"/>
+  <circle cx="690" cy="110" r="50" fill="#f3cf73"/>
+  <rect y="400" width="800" height="200" fill="#7aa06a"/>
+  <ellipse cx="400" cy="430" rx="240" ry="80" fill="#90ba7d"/>
+  <path d="M250 410c60-80 240-80 300 0" fill="none" stroke="#f5e6c8" stroke-width="26" stroke-linecap="round"/>
+  <circle cx="180" cy="320" r="55" fill="#4a814f"/>
+  <rect x="170" y="320" width="20" height="70" fill="#7c4d2b"/>
+  <circle cx="620" cy="310" r="65" fill="#4a814f"/>
+  <rect x="610" y="310" width="22" height="90" fill="#7c4d2b"/>
+  <rect x="340" y="360" width="120" height="22" rx="11" fill="#8d4f20"/>
+</svg>

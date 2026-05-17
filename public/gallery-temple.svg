@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Temple Corner</title>
+  <desc id="desc">Illustration of a temple space.</desc>
+  <rect width="800" height="600" fill="#f7efe3"/>
+  <rect y="430" width="800" height="170" fill="#89a96f"/>
+  <rect x="255" y="240" width="290" height="200" rx="14" fill="#fff8f0" stroke="#c96e2e" stroke-width="8"/>
+  <polygon points="240,250 400,120 560,250" fill="#b85d22"/>
+  <polygon points="385,70 415,70 430,120 370,120" fill="#28553a"/>
+  <rect x="325" y="305" width="150" height="135" fill="#d9a06f"/>
+  <circle cx="400" cy="190" r="22" fill="#f3cf73"/>
+  <path d="M340 210h120" stroke="#fff6ef" stroke-width="8" stroke-linecap="round"/>
+</svg>

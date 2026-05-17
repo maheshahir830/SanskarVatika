@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Festive Evenings</title>
+  <desc id="desc">Illustration of a society celebration.</desc>
+  <rect width="800" height="600" fill="#fff0de"/>
+  <rect y="420" width="800" height="180" fill="#28553a"/>
+  <circle cx="160" cy="130" r="34" fill="#c96e2e"/>
+  <circle cx="250" cy="105" r="22" fill="#f3cf73"/>
+  <circle cx="330" cy="145" r="28" fill="#b13d2e"/>
+  <circle cx="620" cy="120" r="30" fill="#c96e2e"/>
+  <circle cx="690" cy="160" r="18" fill="#f3cf73"/>
+  <path d="M120 180c50 20 90 20 140 0s90-20 140 0 90 20 140 0 90-20 140 0" fill="none" stroke="#c96e2e" stroke-width="12" stroke-linecap="round"/>
+  <rect x="150" y="250" width="500" height="140" rx="20" fill="#fff8ef"/>
+  <text x="400" y="330" font-family="Georgia, serif" font-size="48" text-anchor="middle" fill="#14311d">Festival Night</text>
+</svg>

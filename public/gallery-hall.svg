@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Community Hall</title>
+  <desc id="desc">Illustration of a society hall.</desc>
+  <rect width="800" height="600" fill="#f5efe5"/>
+  <rect y="420" width="800" height="180" fill="#d8c0a6"/>
+  <rect x="140" y="180" width="520" height="260" rx="16" fill="#fff9f1" stroke="#c96e2e" stroke-width="8"/>
+  <polygon points="120,200 400,70 680,200" fill="#28553a"/>
+  <rect x="220" y="250" width="110" height="190" fill="#c96e2e"/>
+  <rect x="470" y="250" width="110" height="190" fill="#c96e2e"/>
+  <rect x="355" y="300" width="90" height="140" fill="#8d4f20"/>
+  <text x="400" y="150" font-family="Georgia, serif" font-size="30" text-anchor="middle" fill="#fff8ef">Community Hall</text>
+</svg>
