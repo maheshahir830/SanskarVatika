@@ -133,19 +133,6 @@ function buildWhatsAppUrl(member, notice) {
   return `https://wa.me/${phoneNumber}?text=${message}`
 }
 
-function downloadNoticeImage(imageDataUrl, imageName) {
-  if (!imageDataUrl) {
-    return
-  }
-
-  const link = document.createElement('a')
-  link.href = imageDataUrl
-  link.download = imageName || 'notice-image'
-  document.body.append(link)
-  link.click()
-  link.remove()
-}
-
 function App() {
   const [members, setMembers] = usePersistentState(STORAGE_KEYS.members, seedMembers)
   const [notices, setNotices] = usePersistentState(STORAGE_KEYS.notices, [])
@@ -473,13 +460,10 @@ function AdminPage({ members, notices, setMembers, setNotices, isAdminLoggedIn, 
     }
 
     setNotices((currentNotices) => [record, ...currentNotices])
-    downloadNoticeImage(noticeForm.imageDataUrl, noticeForm.imageName)
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
     setSendState({
       kind: 'success',
-      message: noticeForm.imageDataUrl
-        ? `WhatsApp opened for ${targetMember.name}. The image was downloaded, so attach it in WhatsApp before sending.`
-        : `WhatsApp opened for ${targetMember.name} at house ${targetMember.houseNumber}. Review and send the message there.`,
+      message: `WhatsApp opened for ${targetMember.name} at house ${targetMember.houseNumber}. Review and send the message there.`,
     })
 
     setNoticeForm(defaultNoticeDraft)
@@ -674,8 +658,7 @@ function AdminPage({ members, notices, setMembers, setNotices, isAdminLoggedIn, 
             ) : null}
             <p className="hint-text full-width">
               The amount automatically creates a UPI payment link. Clicking send opens WhatsApp with the
-              notice message ready to review and send. If an image is attached, it will download so you can
-              attach it in WhatsApp.
+              notice message ready to review and send.
             </p>
             <div className="button-row">
               <button className="button primary" type="submit">
